@@ -1,0 +1,331 @@
+:root {
+    --bg-main: #282828;
+    --bg-aside: #171717;
+    --bg-footer: #3e3e3e;
+    --main-color: #1ed760;
+    --font-main: #FFFFFF;
+}
+
+@font-face {
+    font-family: spotify;
+    src: url(../FONTS/Metropolis-SemiBold.otf);
+}
+
+* {
+    box-sizing: border-box;
+    color: var(--font-main);
+    font-family: spotify;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background: rgb(57, 57, 57);
+    background: linear-gradient(180deg, rgba(57, 57, 57, 1) 35%, rgba(30, 30, 30, 1) 100%);
+}
+
+.container {
+    background-color: var(--bg-main);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 100%;
+    height: 90.85vh;
+}
+
+/*Botones a lo MAC*/
+.botones-Mac {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+    margin-bottom: 1rem;
+}
+
+.botones-Mac .btn {
+    background-color: white;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+}
+
+.botones-Mac .btn:nth-child(1) {
+    background-color: red;
+}
+
+.botones-Mac .btn:nth-child(2) {
+    background-color: orange;
+}
+
+.botones-Mac .btn:nth-child(3) {
+    background-color: var(--main-color);
+}
+
+.botones-Mac .btn:hover {
+    transform: scale(1.2);
+    transition: all 0.25s ease-out;
+    cursor: pointer;
+}
+
+aside {
+    background-color: var(--bg-aside);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.filtros {
+    background-color: var(--bg-footer);
+    margin-top: 1rem;
+    border-radius: 0.2rem;
+    padding: 0.4rem 1rem;
+}
+
+.filtros .filter-drop {
+    display: flex;
+    align-items: center;
+}
+
+.filtros .filter-drop:hover {
+    cursor: pointer;
+}
+
+.display-none {
+    display: none;
+}
+
+.filtros p:hover {
+    color: var(--font-main);
+    cursor: pointer;
+}
+
+.filtros .filter-drop i,
+.filtros .filter-drop p,
+.filtros p {
+    color: #c8c8c8;
+}
+
+.song-img-zone {
+    background-color: var(--bg-footer);
+    margin-left: -1rem;
+    margin-bottom: -1rem;
+    margin-right: -1rem;
+    margin-top: auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.song-img {
+    width: 10rem;
+    height: 100%;
+}
+
+#top {
+    padding-top: 1rem !important;
+}
+
+#top,
+#bot {
+    padding: 0rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user img {
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+}
+
+.input-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--font-main);
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.input-search i {
+    position: absolute;
+    left: 1rem;
+    font-size: 1.2rem;
+    color: var(--bg-aside);
+}
+
+.input-search input {
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    border: none;
+    border-radius: 1.5rem;
+    background-color: transparent;
+    color: var(--bg-aside);
+    outline: none;
+}
+
+.input-search input::placeholder {
+    color: var(--bg-main);
+}
+
+#bot p {
+    font-size: 1.5rem;
+}
+
+.pause i:hover {
+    color: var(--main-color);
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-pause {
+    background-color: var(--main-color);
+    color: var(--font-main);
+    border: none;
+    margin-right: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+.btn-pause:hover {
+    background-color: #00c344;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+section {
+    overflow-y: auto;
+    height: 70vh;
+    padding: 0 1rem;
+}
+
+#tabla-canciones table {
+    width: 100%;
+}
+
+section::-webkit-scrollbar {
+    display: none;
+}
+
+table .btn {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--main-color);
+    border-radius: 100%;
+    display: none;
+}
+
+table .btn i {
+    font-size: 1.5rem;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid var(--bg-footer);
+}
+
+.song-left {
+    text-align: start;
+}
+
+table td,
+table th {
+    padding: 1rem;
+    text-align: center;
+}
+
+table tbody tr:hover,
+table tbody tr:focus {
+    background-color: var(--bg-aside);
+    cursor: pointer;
+}
+
+table tbody tr:hover .btn,
+table tbody tr:focus .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bx-heart,
+.bxs-heart {
+    font-size: 1.2rem;
+    color: var(--main-color);
+}
+
+table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--bg-main);
+}
+
+footer {
+    background-color: var(--bg-footer);
+    width: 100%;
+    position: sticky;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+footer #artista-cancion {
+    font-size: 0.8rem;
+    display: block;
+}
+
+footer #barra-de-cancion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer #barra-de-cancion input {
+    width: 100%;
+}
+
+footer #barra-de-volumen {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#iconos-cancion{
+    height: min-content;
+}
+
+#iconos-cancion i{
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+
+#iconos-cancion i:hover{
+    transition: all 0.1s linear;
+    transform: scale(2);
+}

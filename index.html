@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <!--Barra lateral con filtro y foto de canción-->
+        <aside>
+            <div class="botones-Mac">
+                <div class="btn">
+                </div>
+                <div class="btn">
+                </div>
+                <div class="btn">
+                </div>
+            </div>
+
+            <div id="filter-drop" class="filtros">
+                <div class="filter-drop">
+                    <i id="filter-arrow" class='bx bxs-right-arrow'></i>
+                    <p>Filtros</p>
+                </div>
+                <p id="filter-all" class="display-none">Todos</p>
+                <p id="filter-fav" class="display-none">Favoritos</p>
+            </div>
+
+            <div class="song-img-zone">
+                <img id="cancion-img" class="song-img" src="IMG/mega-felación-nuclear-v0-lmca1780rh3c1.jpeg" alt="">
+            </div>
+        </aside>
+        <!--Contenedor principal-->
+        <main>
+            <!--Parte de arriba del spoti donde esta el buscador y botón de pausa-->
+            <nav>
+                <div id="top">
+                    <div class="input-search">
+                        <i class='bx bx-search-alt'></i>
+                        <input type="text" name="buscar" id="buscar" placeholder="Buscar...">
+                    </div>
+                    <div class="user">
+                        <img src="IMG/pepe.jpg" alt="user">
+                        <p>Pepe Viyuela</p>
+                    </div>
+                </div>
+                <div id="bot">
+                    <p>Música</p>
+                    <div class="pause">
+                        <button id="btn-play" class="btn-pause">Reproducir</button>
+                        <i class='bx bxs-add-to-queue'></i>
+                    </div>
+                </div>
+            </nav>
+            <!--Donde se genera la tabla de cartas-->
+            <section id="tabla-canciones">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="song-left">TITULO</th>
+                            <th class="song-left">ARTISTA</th>
+                            <th><i class='bx bx-time-five'></i></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="filas-canciones">
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+    </div>
+    <!--Barra de audio-->
+    <footer>
+        <div id="artista-cancion">
+            <p id="foot-artist">Seleccione</p>
+            <p id="foot-song">Una canción</p>
+        </div>
+        <div id="barra-de-cancion">
+            <div id="iconos-cancion">
+                <i class='bx bx-repeat'></i>
+                <i class='bx bx-skip-previous'></i>
+                <i class='bx bx-play-circle'></i>
+                <i class='bx bx-skip-next'></i>
+                <i class='bx bx-shuffle'></i>
+            </div>
+            <input type="range" id="song-length" min="1" step="1" value="1">
+        </div>
+        <div id="barra-de-volumen">
+            <i id="volumen-i" class='bx bxs-volume-full'></i>
+            <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1">
+        </div>
+    </footer>
+
+    <audio src="#" class="display-none" id="audio"></audio>
+    <script src="JS/script.js"></script>
+    
+</body>
+
+</html>
