@@ -20,6 +20,8 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: var(--bg-footer);
+    min-height: 100vh;
 }
 
 nav {
@@ -32,10 +34,9 @@ nav {
     display: grid;
     grid-template-columns: 1fr 3fr;
     width: 100%;
-    height: 90.85vh;
+    height: 100%;
 }
 
-/*Botones a lo MAC*/
 .botones-Mac {
     display: flex;
     justify-content: space-between;
@@ -207,9 +208,17 @@ aside {
     transition: transform 0.2s ease-in-out;
 }
 
+.btn-pause:disabled {
+    background-color: #01491a;
+    color: #2e2e2e;
+    cursor: default;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
 section {
     overflow-y: auto;
-    height: 70vh;
+    height: 75vh;
     padding: 0 1rem;
 }
 
@@ -278,13 +287,21 @@ table thead {
 }
 
 footer {
-    background-color: var(--bg-footer);
     width: 100%;
-    position: sticky;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     gap: 1rem;
-    padding: 0 2rem;
+    padding: 0.5rem 2rem;
+    position: sticky;
+    bottom: 0;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-footer);
 }
 
 footer div {
@@ -296,17 +313,25 @@ footer div {
 footer #artista-cancion {
     font-size: 0.8rem;
     display: block;
+    text-shadow: 2px 2px 2px #000000;
 }
 
-footer #barra-de-cancion{
+footer #barra-de-cancion {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-footer #barra-de-cancion input {
+footer #barra-de-cancion #barra-duracion {
     width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    height: min-content;
+}
+
+footer #barra-de-cancion #barra-duracion input {
+    width: 80%;
 }
 
 footer #barra-de-volumen {
@@ -315,17 +340,262 @@ footer #barra-de-volumen {
     justify-content: flex-end;
 }
 
-#iconos-cancion{
+#iconos-cancion {
     height: min-content;
 }
 
-#iconos-cancion i{
+#iconos-cancion i {
     font-size: 1.2rem;
     cursor: pointer;
     margin: 0 0.5rem;
 }
 
-#iconos-cancion i:hover{
+#iconos-cancion i:hover {
     transition: all 0.1s linear;
     transform: scale(2);
+}
+
+.icons-verdes {
+    color: #00c344;
+}
+
+.modal {
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0.95);
+    background-color: #E5E5E5;
+    border: 1px solid var(--main-color);
+    border-radius: 1rem;
+    position: absolute;
+    height: fit-content;
+    width: 80%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.modal.show {
+    z-index: 10;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal p {
+    color: black;
+}
+
+.modal input {
+    width: 80%;
+    height: 3rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+    color: var(--bg-footer);
+    font-size: 1.3rem;
+    padding: 1rem;
+}
+
+.bx-x {
+    color: var(--main-color);
+    align-self: flex-start;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: transform 0.2s linear;
+}
+
+.bx-x:hover {
+    transform: scale(1.2);
+}
+
+#user-song-title,
+#user-song-artist {
+    background-color: #FFFFFF;
+}
+
+#user-song-upload {
+    margin: 1rem;
+    background-color: var(--main-color);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    border-radius: 10rem;
+    cursor: pointer;
+    transition: transform 0.2s linear;
+}
+
+#user-song-upload:hover {
+    transform: scale(1.2);
+}
+
+.blur-background {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+.bien {
+    border: solid green 2px !important;
+}
+
+.mal {
+    border: solid red 2px !important;
+}
+
+#barra-duracion .inputRange {
+    appearance: none;
+    width: 200px;
+    height: 12px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--bg-main) 0%, #dddddd 100%);
+    cursor: pointer;
+}
+
+.inputRange {
+    appearance: none;
+    width: 200px;
+    height: 12px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--bg-main) 100%, #dddddd 0%);
+    cursor: pointer;
+}
+
+/* Thumb: for Chrome, Safari, Edge */
+.inputRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background: var(--bg-main);
+    box-shadow: none;
+}
+
+/* Thumb: for Firefox */
+.inputRange::-moz-range-thumb {
+    border: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background: var(--bg-main);
+    box-shadow: none;
+}
+
+@media (max-width: 414px) {
+
+    /*Movil grande*/
+    nav {
+        display: none;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filtros {
+        margin: 1rem;
+    }
+
+    #tabla-canciones {
+        width: 100%;
+    }
+
+    table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    table td:first-child,
+    table th:first-child {
+        visibility: hidden;
+        overflow: hidden;
+        transition: visibility 0.3s ease, width 0.3s ease;
+    }
+
+    table tbody tr:focus-within td:first-child,
+    table tbody tr:focus-within th:first-child {
+        visibility: visible;
+        width: auto;
+        padding: 1rem;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #barra-de-volumen {
+        display: none !important;
+    }
+
+    footer #artista-cancion {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+
+    footer #foot-artist {
+        font-size: 1rem;
+    }
+
+    footer #foot-song {
+        margin-left: 1rem;
+        color: #585656;
+    }
+
+    section {
+        height: 50vh;
+    }
+
+    #iconos-cancion i {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    footer #artista-cancion {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        height: min-content;
+    }
+
+    footer {
+        padding: 0;
+    }
+
+    footer #barra-de-cancion #barra-duracion input {
+        width: 40%;
+    }
+
+    footer #barra-de-cancion #barra-duracion {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        height: min-content;
+    }
+
+    section {
+        height: 35vh;
+    }
+
+    section {
+        padding: 0;
+    }
+
+    table thead tr th,
+    table tbody tr td {
+        padding: 0.5rem;
+    }
+
+    .song-img {
+        width: 7rem;
+        height: 100%;
+    }
 }

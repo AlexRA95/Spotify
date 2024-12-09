@@ -10,7 +10,21 @@
 </head>
 
 <body>
-    <div class="container">
+
+    <div id="modal" class="modal">
+        <i id="close-modal" class='bx bx-x'></i>
+        <p>Añadir una nueva cancion</p>
+        <input type="file" id="user-song-link">
+        <p>Titulo</p>
+        <input type="text" id="user-song-title">
+        <p>Autor</p>
+        <input type="text" id="user-song-artist">
+        <p>Imagen de portada</p>
+        <input type="file" id="user-song-cover">
+        <button id="user-song-upload">Subir</button>
+    </div>
+
+    <div id="container" class="container">
         <!--Barra lateral con filtro y foto de canción-->
         <aside>
             <div class="botones-Mac">
@@ -22,8 +36,8 @@
                 </div>
             </div>
 
-            <div id="filter-drop" class="filtros">
-                <div class="filter-drop">
+            <div class="filtros">
+                <div id="filter-drop" class="filter-drop">
                     <i id="filter-arrow" class='bx bxs-right-arrow'></i>
                     <p>Filtros</p>
                 </div>
@@ -32,7 +46,7 @@
             </div>
 
             <div class="song-img-zone">
-                <img id="cancion-img" class="song-img" src="IMG/mega-felación-nuclear-v0-lmca1780rh3c1.jpeg" alt="">
+                <img id="cancion-img" class="song-img" src="IMG/spotify.png" alt="">
             </div>
         </aside>
         <!--Contenedor principal-->
@@ -52,8 +66,8 @@
                 <div id="bot">
                     <p>Música</p>
                     <div class="pause">
-                        <button id="btn-play" class="btn-pause">Reproducir</button>
-                        <i class='bx bxs-add-to-queue'></i>
+                        <button id="btn-play" class="btn-pause" disabled>Reproducir</button>
+                        <i id="show-modal" class='bx bxs-add-to-queue'></i>
                     </div>
                 </div>
             </nav>
@@ -77,24 +91,29 @@
 
     </div>
     <!--Barra de audio-->
-    <footer>
+    <footer id="footer">
         <div id="artista-cancion">
             <p id="foot-artist">Seleccione</p>
             <p id="foot-song">Una canción</p>
         </div>
         <div id="barra-de-cancion">
             <div id="iconos-cancion">
-                <i class='bx bx-repeat'></i>
-                <i class='bx bx-skip-previous'></i>
-                <i class='bx bx-play-circle'></i>
-                <i class='bx bx-skip-next'></i>
-                <i class='bx bx-shuffle'></i>
+                <i id="repeat" class='bx bx-repeat'></i>
+                <i id="song-prev" class='bx bx-skip-previous'></i>
+                <i id="song-play" class='bx bx-play-circle'></i>
+                <i id="song-next" class='bx bx-skip-next'></i>
+                <i id="song-rand" class='bx bx-shuffle'></i>
             </div>
-            <input type="range" id="song-length" min="1" step="1" value="1">
+            <div id="barra-duracion">
+                <p id="duracion-act">0:00</p>
+                <input type="range" id="song-length" min="1" step="1" value="1" class="inputRange">
+                <p id="duracion-total">0:00</p>
+            </div>
+            
         </div>
         <div id="barra-de-volumen">
             <i id="volumen-i" class='bx bxs-volume-full'></i>
-            <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1">
+            <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1" class="inputRange">
         </div>
     </footer>
 
